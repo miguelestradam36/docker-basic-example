@@ -1,13 +1,26 @@
 class SetUpExecuter():
+    """
+    Attributes
+    ---
+    """
+    os = __import__('os')#os module as attribute
+    sys = __import__('sys') #sys module as attribute
+    logging = __import__('logging') #logging module as attribute
 
-    os = __import__('os')
-    sys = __import__('sys')
-    logging = __import__('logging')
-
-    filepath = "\\config\\defaults.yaml"
-    prefix = "python -m"
-
+    filepath = "\\config\\defaults.yaml" # YAML data about modules to install
+    prefix = "python -m" #prefix for system executions
+    """
+    Methods
+    ---
+    """
     def __init__(self):
+        """
+        Function that initialized the class
+        ---
+        Params:
+        Objective:
+        Returns:
+        """
         import logging
         logFileFormatter = logging.Formatter(
             fmt=f"%(levelname)s %(asctime)s (%(relativeCreated)d) \t %(pathname)s F%(funcName)s L%(lineno)s - %(message)s",
@@ -21,6 +34,13 @@ class SetUpExecuter():
         self.logging.addHandler(fileHandler)
 
     def install_all(self)->None:
+        """
+        Class method
+        ---
+        Params:
+        Objective:
+        Returns:
+        """
         self.read_defaults()
         self.global_installs()
         self.install_test_modules()
@@ -28,6 +48,13 @@ class SetUpExecuter():
         self.install_api_modules()
 
     def global_installs(self)->None:
+        """
+        Class method
+        ---
+        Params:
+        Objective:
+        Returns:
+        """
         self.log.info("Checking in to global installations...")
 
         for module in self.yaml_config["python"]["global"]["modules"]["standard"]:
@@ -41,6 +68,13 @@ class SetUpExecuter():
         self.log.info("\n")
 
     def install_services(self)->None:
+        """
+        Class method
+        ---
+        Params:
+        Objective:
+        Returns:
+        """
         self.log.info("Checking in to api-connection and app installations...")
 
         for module in self.yaml_config["python"]["global"]["modules"]["standard"]:
@@ -54,6 +88,13 @@ class SetUpExecuter():
         self.log.info("\n")
 
     def install_api_modules(self)->None:
+        """
+        Class method
+        ---
+        Params:
+        Objective:
+        Returns:
+        """
         self.log.info("Checking in to services installation...")
 
         for module in self.yaml_config["python"]["global"]["modules"]["api-connection"]:
@@ -67,6 +108,13 @@ class SetUpExecuter():
         self.log.info("\n")
 
     def install_test_modules(self)->None:
+        """
+        Class method
+        ---
+        Params:
+        Objective:
+        Returns:
+        """
         self.log.info("Checking in to services installation...")
 
         import sys
@@ -90,7 +138,13 @@ class SetUpExecuter():
         self.log.info("\n")
 
     def read_defaults(self)->None:
-
+        """
+        Class method
+        ---
+        Params:
+        Objective:
+        Returns:
+        """
         fullpath = self.os.path.join(self.os.path.dirname(__file__), self.filepath)
 
         try:

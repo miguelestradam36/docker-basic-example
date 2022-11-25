@@ -17,9 +17,9 @@ class SetUpExecuter():
         """
         Function that initialized the class
         ---
-        Params:
-        Objective:
-        Returns:
+        Params: No arguments/parameters
+        Objective: Creates logger file for logging the installment or check of modules
+        Returns: SetUpExecuter class
         """
         import logging
         logFileFormatter = logging.Formatter(
@@ -37,9 +37,9 @@ class SetUpExecuter():
         """
         Class method
         ---
-        Params:
-        Objective:
-        Returns:
+        Params: No arguments/parameters
+        Objective: Runs all the installment methods in order
+        Returns: None
         """
         self.read_defaults()
         self.global_installs()
@@ -51,9 +51,9 @@ class SetUpExecuter():
         """
         Class method
         ---
-        Params:
-        Objective:
-        Returns:
+        Params: No arguments/parameters
+        Objective: Install all the standard modules from the YAML file.
+        Returns: None
         """
         self.log.info("Checking in to global installations...")
 
@@ -71,9 +71,9 @@ class SetUpExecuter():
         """
         Class method
         ---
-        Params:
-        Objective:
-        Returns:
+        Params: No arguments/parameters
+        Objective: Install all the services modules from the YAML file.
+        Returns: None
         """
         self.log.info("Checking in to api-connection and app installations...")
 
@@ -91,9 +91,9 @@ class SetUpExecuter():
         """
         Class method
         ---
-        Params:
-        Objective:
-        Returns:
+        Params: No arguments/parameters
+        Objective: Install all the api services modules from the YAML file.
+        Returns: None
         """
         self.log.info("Checking in to services installation...")
 
@@ -111,9 +111,9 @@ class SetUpExecuter():
         """
         Class method
         ---
-        Params:
-        Objective:
-        Returns:
+        Params: No arguments/parameters
+        Objective: Install all the test modules from the YAML file.
+        Returns: None
         """
         self.log.info("Checking in to services installation...")
 
@@ -141,9 +141,9 @@ class SetUpExecuter():
         """
         Class method
         ---
-        Params:
-        Objective:
-        Returns:
+        Params: No arguments/parameters
+        Objective: Reads YAML file and loads data into attribute
+        Returns: None
         """
         fullpath = self.os.path.join(self.os.path.dirname(__file__), self.filepath)
 
